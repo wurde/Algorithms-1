@@ -11,15 +11,21 @@ import math
 #
 
 def recipe_batches(recipe, ingredients):
-  pass 
-  # TODO define counts = [] * len(recipe)
-  # TODO iterate over recipe
-    # TODO divide inventory by required amounts
-    # TODO set value in counts array (preserve index)
-  # TODO set max_batches = max(counts)
-  # TODO iterate over counts
-    # TODO if count < max_batch
-    # TODO set max_batches = count
+  counts = []
+
+  for name,value in recipe.items():
+    if name in ingredients:
+      counts.append(math.floor(ingredients[name] / value))
+    else:
+      counts.append(0)
+
+  max_batches = max(counts)
+
+  for count in counts:
+    if count < max_batches:
+      max_batches = count
+
+  return max_batches
 
 #
 # Execute method
