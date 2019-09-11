@@ -11,13 +11,20 @@ import argparse
 #
 
 def find_max_profit(prices):
-  lowest_price = prices.pop()
+  profit = None
 
-  for price in prices:
-    if price < lowest_price:
-      lowest_price = price
+  for i in range(0, len(prices)):
+    for j in range(i+1, len(prices)):
+      buy_price = prices[i]
+      sell_price = prices[j]
 
-  return lowest_price
+      if profit == None:
+        profit = sell_price - buy_price
+      elif (sell_price - buy_price) > profit:
+        profit = sell_price - buy_price
+
+  print('')
+  return profit
 
 #
 # Execute method
