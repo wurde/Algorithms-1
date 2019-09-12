@@ -1,10 +1,35 @@
 #!/usr/bin/python
 
+#
+# Dependencies
+#
+
 import math
 
-def recipe_batches(recipe, ingredients):
-  pass 
+#
+# Define method
+#
 
+def recipe_batches(recipe, ingredients):
+  counts = []
+
+  for name,value in recipe.items():
+    if name in ingredients:
+      counts.append(math.floor(ingredients[name] / value))
+    else:
+      counts.append(0)
+
+  max_batches = max(counts)
+
+  for count in counts:
+    if count < max_batches:
+      max_batches = count
+
+  return max_batches
+
+#
+# Execute method
+#
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
