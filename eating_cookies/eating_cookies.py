@@ -14,7 +14,14 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
-  pass
+  # TODO define base case
+  if n == 0:
+    return 1
+  elif n == 1:
+    return 1
+
+  # TODO define recursion case
+  return eating_cookies(n - 1) + eating_cookies(n - 1)
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
