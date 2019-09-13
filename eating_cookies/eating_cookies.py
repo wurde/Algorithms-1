@@ -10,18 +10,21 @@ import sys
 # Define method
 #
 
-# The cache parameter is here for if you want to implement
-# a solution that is more efficient than the naive 
-# recursive solution
 def eating_cookies(n, cache=None):
-  # TODO define base case
-  if n == 0:
+  # Define base case
+  if n < 0:
+    return 0
+  elif n == 0:
     return 1
   elif n == 1:
     return 1
 
-  # TODO define recursion case
-  return eating_cookies(n - 1) + eating_cookies(n - 1)
+  # Define recursion case
+  return eating_cookies(n - 3) + eating_cookies(n - 2) + eating_cookies(n - 1)
+
+# 
+# Execute method
+# 
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
